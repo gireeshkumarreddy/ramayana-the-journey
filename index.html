@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Rāmāyaṇa — The Journey of Rama</title>
+  <meta name="description" content="An interactive cinematic journey through the Ramayana, from Ayodhya to Lanka. A fan-made concept experience." />
+  <meta name="theme-color" content="#07060a" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2307060a'/%3E%3Cpath d='M32 10c6 10 10 16 10 24a10 10 0 0 1-20 0c0-8 4-14 10-24z' fill='%23d8b46a'/%3E%3C/svg%3E" />
+  <link rel="preload" href="/media/posters/walk.webp" as="image" />
+  <script type="module" src="/src/main.ts"></script>
+</head>
+<body>
+  <a class="skip-link" href="#awakening">Skip to the story</a>
+
+  <!-- ═════════════ GATE ═════════════ -->
+  <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <canvas class="gate__embers" aria-hidden="true"></canvas>
+    <div class="gate__inner">
+      <p class="gate__deva" lang="sa" aria-hidden="true">रामायण</p>
+      <h1 class="gate__title" id="gate-title">
+        <span class="gate__word">Rāma</span>
+        <span class="gate__plus">+</span>
+        <span class="gate__word">ayana</span>
+      </h1>
+      <p class="gate__gloss">the journey of Rama</p>
+      <div class="gate__progress" aria-hidden="true"><span></span></div>
+      <p class="gate__status" aria-live="polite">Preparing the journey…</p>
+      <div class="gate__actions">
+        <button class="btn btn--gold" data-enter="sound">Enter with sound</button>
+        <button class="btn btn--ghost" data-enter="silent">Enter in silence</button>
+      </div>
+      <p class="gate__note">A fan-made cinematic concept · best with headphones</p>
+    </div>
+    <div class="gate__half gate__half--top" aria-hidden="true"></div>
+    <div class="gate__half gate__half--bottom" aria-hidden="true"></div>
+  </div>
+
+  <!-- ═════════════ CHROME ═════════════ -->
+  <header class="chrome" aria-label="Site">
+    <a class="chrome__mark" href="#awakening" aria-label="Rāmāyaṇa, back to the beginning">
+      <span lang="sa" aria-hidden="true">रा</span><span>Rāmāyaṇa</span>
+    </a>
+    <p class="chrome__chapter" aria-live="polite"><span class="chrome__num">I</span><span class="chrome__name">Awakening</span></p>
+    <div class="chrome__actions">
+      <button class="chrome__btn" id="sound-toggle" aria-pressed="false">
+        <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="chrome__btn-label">Sound off</span>
+      </button>
+      <button class="chrome__btn" id="menu-toggle" aria-expanded="false" aria-controls="chapters">Chapters</button>
+    </div>
+  </header>
+
+  <nav class="ayana" aria-label="Journey progress">
+    <div class="ayana__track" aria-hidden="true"><span class="ayana__fill"></span></div>
+    <ol class="ayana__nodes"></ol>
+  </nav>
+
+  <div class="chapters" id="chapters" hidden>
+    <div class="chapters__inner">
+      <p class="eyebrow">The journey, in twelve parts</p>
+      <ol class="chapters__list"></ol>
+      <button class="chapters__close btn btn--ghost">Close</button>
+    </div>
+  </div>
+
+  <button class="skip-intro" hidden>Skip intro <kbd>Esc</kbd></button>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <main id="story">
+
+    <!-- ═════════════ I · AWAKENING ═════════════ -->
+    <section class="ch awakening" id="awakening" data-num="I" data-title="Awakening" data-tone="night">
+      <div class="awakening__stage">
+        <div class="frame frame--full awakening__walk" role="img" aria-label="Bare feet and a wooden staff walking across sunlit desert sand">
+          <video class="clip" data-clip="walk" muted playsinline preload="auto" poster="/media/posters/walk.webp"></video>
+        </div>
+        <div class="frame frame--full awakening__storm" role="img" aria-label="A lone figure on a vast dark plain beneath a storm">
+          <video class="clip" data-clip="storm" muted playsinline loop preload="auto" poster="/media/posters/storm.webp"></video>
+        </div>
+        <div class="letterbox" aria-hidden="true"><i></i><i></i></div>
+
+        <p class="awakening__once subtitle">Once, there was an age…</p>
+
+        <div class="awakening__title">
+          <p class="awakening__deva" lang="sa" aria-hidden="true">रामायण</p>
+          <h2 class="mega" aria-label="Rāmāyaṇa">
+            <span>R</span><span>Ā</span><span>M</span><span>Ā</span><span>Y</span><span>A</span><span>Ṇ</span><span>A</span>
+          </h2>
+          <p class="awakening__sub">The Journey of Rama</p>
+          <p class="awakening__meta"><span>An epic in seven books</span><span>Twenty-four thousand verses</span><span>Told for over two thousand years</span></p>
+        </div>
+        <div class="scroll-cue" aria-hidden="true"><span>Begin the journey</span><i></i></div>
+      </div>
+    </section>
+
+    <!-- ═════════════ II · THE AGE OF GODS ═════════════ -->
+    <section class="ch gods scene" id="gods" data-num="II" data-title="The Age of Gods" data-tone="silver">
+      <div class="stage">
+        <canvas class="seq" data-seq="airavata" role="img" aria-label="Airāvata, the winged white elephant of Indra, flies through a Himalayan valley toward the camera"></canvas>
+        <div class="letterbox" aria-hidden="true"><i></i><i></i></div>
+        <p class="stage__label"><span>II</span> The Age of Gods</p>
+        <span class="omen" aria-hidden="true"></span>
+      </div>
+      <div class="beats">
+        <div class="beat beat--left"><p class="narration">When the gods walked among mortals,</p></div>
+        <div class="beat beat--right"><p class="narration">and Indra rode the white elephant <em>Airāvata</em> above the snows of the Himalaya,</p></div>
+        <div class="beat beat--center"><p class="narration narration--lg">the three worlds were held in balance.</p></div>
+        <div class="beat beat--low"><p class="aside">Far to the south, something had begun to burn.</p></div>
+      </div>
+    </section>
+
+    <!-- ═════════════ III · AYODHYA ═════════════ -->
+    <section class="ch ayodhya" id="ayodhya" data-num="III" data-title="Ayodhyā" data-tone="gold">
+      <div class="ayodhya__head">
+        <p class="eyebrow">/ The City <span>III</span></p>
+        <h2 class="stagger">
+          <span>On the banks</span>
+          <span>of the Sarayu</span>
+          <span>stood Ayodhyā,</span>
+          <span><em>the city no war could take.</em></span>
+        </h2>
+      </div>
+
+      <div class="ayodhya__collage">
+        <figure class="tile tile--a" data-speed="-0.12">
+          <div class="frame" role="img" aria-label="Aerial view of a golden city at sunset"><video class="clip" data-clip="city" muted playsinline loop preload="none" poster="/media/posters/city.webp"></video></div>
+        </figure>
+        <figure class="tile tile--b" data-speed="0.18">
+          <div class="frame" role="img" aria-label="A great eagle glides over the royal courtyard as crowds gather below"><video class="clip" data-clip="palace" muted playsinline loop preload="none" poster="/media/posters/palace.webp"></video></div>
+        </figure>
+        <figure class="tile tile--c" data-speed="-0.25">
+          <div class="frame" role="img" aria-label="Royal women of the city look up at the sky in wonder"><video class="clip" data-clip="women" muted playsinline loop preload="none" poster="/media/posters/women.webp"></video></div>
+        </figure>
+        <figure class="tile tile--d" data-speed="0.08">
+          <div class="frame" role="img" aria-label="The city stretched along a broad river"><video class="clip" data-clip="river" muted playsinline loop preload="none" poster="/media/posters/river.webp"></video></div>
+        </figure>
+        <figure class="tile tile--e" data-speed="0.3">
+          <div class="frame" role="img" aria-label="Sunset through the pillars of a palace hall"><video class="clip" data-clip="sunset_palace" muted playsinline loop preload="none" poster="/media/posters/sunset_palace.webp"></video></div>
+        </figure>
+
+        <div class="ayodhya__text">
+          <p class="eyebrow">/ Kosala</p>
+          <p>The name <em>Ayodhyā</em> means <q>that which cannot be warred against</q>. It was the capital of Kosala, seat of the solar dynasty of Ikṣvāku and Raghu, ruled in this age by King Daśaratha.</p>
+          <p>For years the king had no heir. After a great sacrifice, three queens bore him four sons.</p>
+        </div>
+      </div>
+
+      <div class="lineage" aria-label="The four sons of Daśaratha">
+        <p class="eyebrow">/ The House of Raghu</p>
+        <ol class="lineage__list">
+          <li><span class="lineage__name">Rāma</span><span class="lineage__mother">son of Kausalyā</span></li>
+          <li><span class="lineage__name">Bharata</span><span class="lineage__mother">son of Kaikeyī</span></li>
+          <li><span class="lineage__name">Lakṣmaṇa</span><span class="lineage__mother">son of Sumitrā</span></li>
+          <li><span class="lineage__name">Śatrughna</span><span class="lineage__mother">son of Sumitrā</span></li>
+        </ol>
+        <div class="sun" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ═════════════ IV · DAŚĀNANA ═════════════ -->
+    <section class="ch ravana" id="ravana" data-num="IV" data-title="Daśānana" data-tone="sindoor">
+
+      <!-- The boon -->
+      <div class="scene boon">
+        <div class="stage">
+          <div class="frame frame--full boon__lava" role="img" aria-label="Darkness split by rivers of glowing magma"><video class="clip" data-clip="lava" muted playsinline loop preload="none" poster="/media/posters/lava.webp"></video></div>
+          <div class="frame frame--full boon__ring" role="img" aria-label="A lone figure in meditation at the centre of a ring of fire, beneath a dark idol"><video class="clip" data-clip="firering" muted playsinline loop preload="none" poster="/media/posters/firering.webp"></video></div>
+          <div class="letterbox" aria-hidden="true"><i></i><i></i></div>
+          <p class="stage__label stage__label--sindoor"><span>IV</span> Daśānana · the Ten-Headed</p>
+          <div class="heads" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="beats">
+          <div class="beat beat--center">
+            <p class="kicker">Far to the south, in Laṅkā</p>
+            <p class="narration narration--lg">a son of the sage Viśravas wanted a power no one had ever held.</p>
+          </div>
+          <div class="beat beat--left"><p class="narration">For ten thousand years he performed penance. At the end of every thousand, he cut off one of his ten heads and offered it to the fire.</p></div>
+          <div class="beat beat--right"><p class="narration">Nine heads burned. As he raised the blade to the tenth, <em>Brahmā</em> appeared.</p></div>
+          <div class="beat beat--center">
+            <p class="narration">He asked never to be slain by gods, demons, serpents or spirits.<br /><strong>Men, he thought, were too small to fear.</strong></p>
+            <p class="source">After the Uttara Kāṇḍa of Vālmīki's Rāmāyaṇa</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conquest -->
+      <div class="scene conquest">
+        <div class="stage">
+          <canvas class="burn" aria-hidden="true"></canvas>
+          <div class="conquest__sources" aria-hidden="true">
+            <video class="clip" data-clip="battle" muted playsinline loop preload="none" poster="/media/posters/battle.webp"></video>
+            <video class="clip" data-clip="lightning" muted playsinline loop preload="none" poster="/media/posters/lightning.webp"></video>
+            <video class="clip" data-clip="ravana_snow" muted playsinline loop preload="none" poster="/media/posters/ravana_snow.webp"></video>
+          </div>
+          <div class="letterbox" aria-hidden="true"><i></i><i></i></div>
+          <p class="stage__label stage__label--sindoor"><span>IV</span> Conquest</p>
+        </div>
+        <div class="beats">
+          <div class="beat beat--left"><p class="narration">He drove his half-brother Kubera out of golden Laṅkā and took his flying chariot, the <em>Puṣpaka</em>.</p></div>
+          <div class="beat beat--right"><p class="narration">He rode into the heavens. His son defeated Indra himself, and was named <em>Indrajit</em>, conqueror of Indra.</p></div>
+          <div class="beat beat--center"><p class="narration narration--lg">Gods, serpents and kings paid him tribute. The three worlds trembled.</p></div>
+        </div>
+      </div>
+
+      <!-- The chant -->
+      <div class="scene chant" aria-label="The crowds of Lanka chant his name">
+        <div class="stage">
+          <div class="chant__reel" aria-hidden="true">
+            <video class="clip" data-clip="firedoor" muted playsinline loop preload="none" poster="/media/posters/firedoor.webp"></video>
+            <video class="clip" data-clip="seated" muted playsinline loop preload="none" poster="/media/posters/seated.webp"></video>
+            <video class="clip" data-clip="throne" muted playsinline loop preload="none" poster="/media/posters/throne.webp"></video>
+            <video class="clip" data-clip="sunthrone" muted playsinline loop preload="none" poster="/media/posters/sunthrone.webp"></video>
+            <video class="clip" data-clip="bridge" muted playsinline loop preload="none" poster="/media/posters/bridge.webp"></video>
+            <video class="clip" data-clip="crown" muted playsinline loop preload="none" poster="/media/posters/crown.webp"></video>
+            <video class="clip" data-clip="lanka_crowd" muted playsinline loop preload="none" poster="/media/posters/lanka_crowd.webp"></video>
+          </div>
+          <div class="chant__flash" aria-hidden="true"></div>
+          <div class="letterbox" aria-hidden="true"><i></i><i></i></div>
+          <div class="chant__words" aria-hidden="true">
+            <span>Rāvaṇa</span><span>Rāvaṇa</span><span>Rāvaṇa</span>
+          </div>
+          <p class="chant__line">One ruler for the three worlds.</p>
+          <p class="chant__count" aria-hidden="true"><span>01</span> / 07</p>
+        </div>
+        <div class="beats beats--steps" aria-hidden="true">
+          <div class="step"></div><div class="step"></div><div class="step"></div><div class="step"></div><div class="step"></div><div class="step"></div><div class="step"></div><div class="step"></div>
+        </div>
+      </div>
+
+      <!-- Ten faces -->
+      <div class="faces" id="dashanana">
+        <div class="faces__head">
+          <p class="eyebrow eyebrow--sindoor">/ Daśānana</p>
+          <h2 class="faces__title">Ten heads.<br /><em>One king.</em></h2>
+          <p class="faces__intro">It's easy to remember Rāvaṇa only as the villain. Tradition remembers more than that. Choose a face.</p>
+        </div>
+        <div class="faces__stage">
+          <div class="faces__echoes" aria-hidden="true"></div>
+          <img class="faces__king" src="/media/stills/ravana_cut.webp" alt="Rāvaṇa in his golden crown and armour, looking toward the viewer" width="1180" height="492" />
+        </div>
+        <ol class="faces__list" role="list"></ol>
+        <div class="faces__detail" aria-live="polite">
+          <p class="faces__detail-num">01</p>
+          <h3 class="faces__detail-title">The Scholar</h3>
+          <p class="faces__detail-text"></p>
+        </div>
+      </div>
+
+      <!-- Lanka -->
+      <div class="lanka">
+        <div class="lanka__frame frame" role="img" aria-label="Fire and sparks fill the night as warriors clash">
+          <video class="clip" data-clip="fire_battle" muted playsinline loop preload="none" poster="/media/posters/fire_battle.webp"></video>
+        </div>
+        <div class="lanka__copy">
+          <p class="eyebrow eyebrow--sindoor">/ Laṅkā</p>
+          <h3 class="lanka__title">A city of gold across the sea</h3>
+          <p>Laṅkā was built by Viśvakarmā, the architect of the gods. Under Rāvaṇa it shone, wealthy and ordered and feared.</p>
+          <p class="lanka__turn">At last the gods went to Viṣṇu. Viṣṇu chose to be born as the one creature Rāvaṇa had not thought to fear:<br /><strong>a man.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════ V · THE AVATAR ═════════════ -->
+    <section class="ch avatar" id="avatar" data-num="V" data-title="The Avatar" data-tone="dusk">
+      <div class="avatar__first">
+        <div class="frame frame--band" role="img" aria-label="A young prince draws an arrow from his quiver in a dark forest">
+          <video class="clip" data-clip="rama_quiver" muted playsinline loop preload="none" poster="/media/posters/rama_quiver.webp"></video>
+        </div>
+        <p class="subtitle">So, to restore <em>dharma</em>, Viṣṇu was born a prince of Ayodhyā.</p>
+      </div>
+
+      <div class="scene silhouette">
+        <div class="stage">
+          <div class="silhouette__sky" style="background-image:url(/media/stills/rama_sky.webp)" aria-hidden="true"></div>
+          <div class="silhouette__rays" aria-hidden="true"></div>
+          <h2 class="silhouette__word" aria-label="Rāma"><span>R</span><span>Ā</span><span>M</span><span>A</span></h2>
+          <img class="silhouette__fg" src="/media/stills/rama_fg.webp" alt="Rama in silhouette on a rocky summit against a blazing sunset, bow in hand, quiver on his back" width="1180" height="616" />
+          <div class="letterbox" aria-hidden="true"><i></i><i></i></div>
+          <p class="stage__label"><span>V</span> The Avatar</p>
+        </div>
+        <div class="beats">
+          <div class="beat beat--low"><p class="aside">The seventh avatar of Viṣṇu.</p></div>
+          <div class="beat beat--verse">
+            <blockquote class="verse">
+              <p class="verse__deva" lang="sa">रामो विग्रहवान् धर्मः</p>
+              <p class="verse__iast" lang="sa-Latn">rāmo vigrahavān dharmaḥ</p>
+              <p class="verse__en">“Rama is dharma in human form.”</p>
+              <footer>Vālmīki, Araṇya Kāṇḍa. Spoken, tellingly, by Mārīca as he warns Rāvaṇa</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════ VI · DRAMATIS PERSONAE ═════════════ -->
+    <section class="ch cast scene" id="cast" data-num="VI" data-title="Dramatis Personae" data-tone="night">
+      <div class="stage cast__stage">
+        <div class="cast__aside cast__aside--left">
+          <span class="cast__rule" aria-hidden="true"></span>
+          <p class="cast__kicker">Princes · Queens · Gods<br />Demons · Devotees</p>
+          <p class="cast__num" aria-hidden="true">01</p>
+          <span class="cast__rule" aria-hidden="true"></span>
+          <h2 class="cast__name">Rāma</h2>
+          <p class="cast__deva" lang="sa">रामः</p>
+          <p class="cast__epithet">Prince of Ayodhyā</p>
+        </div>
+        <div class="drum" aria-hidden="true"><div class="drum__ring"></div></div>
+        <div class="cast__aside cast__aside--right">
+          <p class="cast__est">VI<br /><span>Dramatis<br />Personae</span></p>
+          <span class="cast__vrule" aria-hidden="true"></span>
+          <p class="cast__essence">Duty before desire</p>
+          <button class="btn btn--line cast__open">Meet <span>Rāma</span></button>
+          <p class="cast__hint">Scroll to turn the wheel</p>
+        </div>
+        <ol class="cast__index" aria-label="Characters"></ol>
+      </div>
+      <div class="beats beats--steps" aria-hidden="true"></div>
+    </section>
+
+    <dialog class="persona" aria-labelledby="persona-name">
+      <div class="persona__media"></div>
+      <div class="persona__body">
+        <p class="persona__deva" lang="sa"></p>
+        <h3 class="persona__name" id="persona-name"></h3>
+        <p class="persona__titles"></p>
+        <p class="persona__text"></p>
+        <h4 class="eyebrow">/ Moments</h4>
+        <ol class="persona__moments"></ol>
+        <p class="persona__note"></p>
+      </div>
+      <button class="persona__close" aria-label="Close character">Close <span aria-hidden="true">×</span></button>
+    </dialog>
+
+    <!-- ═════════════ VII · THE JOURNEY ═════════════ -->
+    <!--
+      A passage through worlds. Each event is a world that fills the screen. A trail of gold dust
+      leads to a torn window into the next world, and scrolling carries the visitor through it.
+      data-portal = where the next world's window opens inside this one: centre x, centre y, width
+      (fractions of the viewport); data-portal-m is the portrait version.
+    -->
+    <section class="ch journey" id="journey" data-num="VII" data-title="The Journey" data-tone="leaf">
+      <div class="stage journey__stage">
+        <div class="worlds">
+          <article class="world world--leaf" data-portal="0.7,0.4,0.3" data-portal-m="0.5,0.3,0.62" aria-labelledby="w-0">
+            <div class="world__leaf" aria-hidden="true"></div>
+            <div class="world__text">
+              <p class="eyebrow">/ VII · The Journey</p>
+              <h2 class="journey__title" id="w-0">From a broken bow<br /><em>to an empty hermitage</em></h2>
+              <p class="journey__lede">Ramayanas were once copied onto palm leaves, line after line. Follow the ink through the leaf, from one world into the next.</p>
+            </div>
+          </article>
+
+          <article class="world" data-portal="0.3,0.36,0.28" data-portal-m="0.5,0.28,0.6" aria-labelledby="w-1">
+            <div class="world__media" role="img" aria-label="A prince raises a great golden bow above his head in a royal court"><video class="clip" data-clip="bow_lift" muted playsinline loop preload="none" poster="/media/posters/bow_lift.webp"></video></div>
+            <div class="world__shade" aria-hidden="true"></div>
+            <div class="world__text world__text--right">
+              <p class="world__index">I</p>
+              <p class="world__place">Mithilā</p>
+              <h3 id="w-1">The bow of Śiva</h3>
+              <p>King Janaka had promised his daughter Sītā to the man who could string the great bow of Śiva. Princes had failed even to lift it. Rama raised it, drew it, and it broke with a sound like thunder.</p>
+              <p class="world__kanda">Bāla Kāṇḍa</p>
+            </div>
+          </article>
+
+          <article class="world" data-portal="0.7,0.34,0.28" data-portal-m="0.5,0.28,0.6" aria-labelledby="w-2">
+            <div class="world__media" role="img" aria-label="A warrior-sage with a great axe confronts a procession on an open plain"><video class="clip" data-clip="parashurama" muted playsinline loop preload="none" poster="/media/posters/parashurama.webp"></video></div>
+            <div class="world__shade" aria-hidden="true"></div>
+            <div class="world__text">
+              <p class="world__index">II</p>
+              <p class="world__place">The road home</p>
+              <h3 id="w-2">The axe meets the bow</h3>
+              <p>Enraged that Śiva's bow was broken, the warrior-sage Paraśurāma blocked the wedding party's road and challenged Rama to string the bow of Viṣṇu. Rama strung it, and the elder avatar stepped aside for the younger.</p>
+              <p class="world__kanda">Bāla Kāṇḍa</p>
+            </div>
+          </article>
+
+          <article class="world" data-portal="0.32,0.34,0.28" data-portal-m="0.5,0.28,0.6" aria-labelledby="w-3">
+            <div class="world__media" role="img" aria-label="Rama in a royal crown stands among the court beneath red banners"><video class="clip" data-clip="rama_crowned" muted playsinline loop preload="none" poster="/media/posters/rama_crowned.webp"></video></div>
+            <div class="world__shade" aria-hidden="true"></div>
+            <div class="world__text world__text--right">
+              <p class="world__index">III</p>
+              <p class="world__place">Ayodhyā</p>
+              <h3 id="w-3">Two boons</h3>
+              <p>On the eve of Rama's coronation, Queen Kaikeyī claimed two boons the king owed her: Bharata on the throne, and Rama in the forest for fourteen years. Rama went without protest. Sītā and Lakṣmaṇa went with him, and Daśaratha died of grief.</p>
+              <p class="world__kanda">Ayodhyā Kāṇḍa</p>
+            </div>
+          </article>
+
+          <article class="world" data-portal="0.68,0.36,0.28" data-portal-m="0.5,0.28,0.6" aria-labelledby="w-4">
+            <div class="world__media" role="img" aria-label="Sunset light falls through the pillars of an empty palace hall"><video class="clip" data-clip="sunset_palace" muted playsinline loop preload="none" poster="/media/posters/sunset_palace.webp"></video></div>
+            <div class="world__shade" aria-hidden="true"></div>
+            <div class="world__text">
+              <p class="world__index">IV</p>
+              <p class="world__place">Citrakūṭa</p>
+              <h3 id="w-4">The sandals on the throne</h3>
+              <p>Bharata refused the crown his mother had won for him and walked to the forest to bring Rama home. When Rama would not break their father's word, Bharata carried back his sandals and set them on the throne. For fourteen years the palace waited, and he ruled in their name.</p>
+              <p class="world__kanda">Ayodhyā Kāṇḍa</p>
+            </div>
+          </article>
+
+          <article class="world" data-portal="0.3,0.34,0.28" data-portal-m="0.5,0.28,0.6" aria-labelledby="w-5">
+            <div class="world__media" role="img" aria-label="In a sunlit forest, a lone archer faces a charging host"><video class="clip" data-clip="forest_army" muted playsinline loop preload="none" poster="/media/posters/forest_army.webp"></video></div>
+            <div class="world__shade" aria-hidden="true"></div>
+            <div class="world__text world__text--right">
+              <p class="world__index">V</p>
+              <p class="world__place">Pañcavaṭī, on the Godāvarī</p>
+              <h3 id="w-5">One against an army</h3>
+              <p>Deep in the Daṇḍaka forest, Rāvaṇa's sister Śūrpaṇakhā was spurned and disfigured. Her brothers Khara and Dūṣaṇa marched on the hermitage with an army. Rama met it alone.</p>
+              <p class="world__kanda">Araṇya Kāṇḍa</p>
+            </div>
+          </article>
+
+          <article class="world world--ember" data-portal="0.68,0.32,0.28" data-portal-m="0.5,0.28,0.6" aria-labelledby="w-6">
+            <div class="world__media" role="img" aria-label="Two silhouetted hands reach toward each other across a blazing golden sunset"><video class="clip" data-clip="hands" muted playsinline loop preload="none" poster="/media/posters/hands.webp"></video></div>
+            <div class="world__shade" aria-hidden="true"></div>
+            <div class="world__text">
+              <p class="world__index">VI</p>
+              <p class="world__place">Pañcavaṭī</p>
+              <h3 id="w-6">The golden deer</h3>
+              <p>Rāvaṇa's uncle Mārīca took the shape of a golden deer and wandered near the hut. Sītā asked for it, and Rama gave chase. When a cry like Rama's voice came from the forest, Sītā sent Lakṣmaṇa after him.</p>
+              <p class="world__kanda">Araṇya Kāṇḍa</p>
+            </div>
+          </article>
+
+          <article class="world world--red" aria-labelledby="w-7">
+            <div class="world__media" role="img" aria-label="A gilded flying chariot rises above a sea of clouds"><video class="clip" data-clip="pushpaka" muted playsinline loop preload="none" poster="/media/posters/pushpaka.webp"></video></div>
+            <div class="world__shade" aria-hidden="true"></div>
+            <div class="world__text world__text--right">
+              <p class="world__index">VII</p>
+              <p class="world__place">The empty hermitage</p>
+              <h3 id="w-7">Taken into the sky</h3>
+              <p>Rāvaṇa came to the hut disguised as a wandering ascetic, and Sītā welcomed him as a guest. He seized her and carried her up into the sky, southward, toward the sea.</p>
+              <p class="world__kanda">Araṇya Kāṇḍa</p>
+            </div>
+          </article>
+        </div>
+
+        <canvas class="trail" aria-hidden="true"></canvas>
+        <p class="stage__label journey__label"><span>VII</span> The Journey</p>
+        <ol class="passage" aria-hidden="true">
+          <li>The leaf</li><li>Mithilā</li><li>The road</li><li>Ayodhyā</li><li>Citrakūṭa</li><li>Pañcavaṭī</li><li>The deer</li><li>The sky</li>
+        </ol>
+      </div>
+      <div class="beats beats--steps journey__steps" aria-hidden="true"></div>
+    </section>
+
+    <!-- ═════════════ VIII · JATAYU & THE VOW ═════════════ -->
+    <section class="ch jatayu" id="jatayu" data-num="VIII" data-title="Jaṭāyu &amp; the Vow" data-tone="dawn">
+      <div class="scene jatayu__flight">
+        <div class="stage">
+          <canvas class="seq" data-seq="jatayu" role="img" aria-label="Jaṭāyu, the great vulture, bursts through a flock of birds and screams toward the camera"></canvas>
+          <div class="frame frame--full jatayu__claws" role="img" aria-label="Talons tear at the gilded hull of a flying chariot"><video class="clip" data-clip="claws" muted playsinline loop preload="none" poster="/media/posters/claws.webp"></video></div>
+          <div class="frame frame--full jatayu__gold" role="img" aria-label="A vulture with outstretched wings flies through golden clouds"><video class="clip" data-clip="jatayu_gold" muted playsinline loop preload="none" poster="/media/posters/jatayu_gold.webp"></video></div>
+          <div class="letterbox" aria-hidden="true"><i></i><i></i></div>
+          <p class="stage__label"><span>VIII</span> Jaṭāyu</p>
+        </div>
+        <div class="beats">
+          <div class="beat beat--left"><p class="kicker">King of the vultures</p><p class="narration">Jaṭāyu was old, and had been a friend of Daśaratha. He saw the chariot, heard Sītā's cries, and flew at Rāvaṇa alone.</p></div>
+          <div class="beat beat--right"><p class="narration">He shattered the chariot and fought until Rāvaṇa cut off his wings.</p></div>
+          <div class="beat beat--center"><p class="narration narration--lg">He lived only long enough to tell Rama which way she had gone.</p></div>
+        </div>
+      </div>
+
+      <div class="scene vow">
+        <div class="stage">
+          <div class="frame frame--full vow__clip" role="img" aria-label="Rama draws his bow, and the arrow ignites"><video class="clip" data-clip="vow" muted playsinline loop preload="none" poster="/media/posters/vow.webp"></video></div>
+          <canvas class="seq vow__vortex" data-seq="vortex" role="img" aria-label="A vortex of fire and dust collapses into blinding light"></canvas>
+          <div class="letterbox" aria-hidden="true"><i></i><i></i></div>
+          <div class="vow__words">
+            <p class="vow__line">Beneath the ocean or beyond the sky,</p>
+            <p class="vow__line">I will find her.</p>
+            <h2 class="vow__title"><span>The</span> Vow <span>of</span> Rāma</h2>
+          </div>
+          <div class="whiteout" aria-hidden="true"></div>
+        </div>
+        <div class="beats beats--steps" aria-hidden="true"><div class="step"></div><div class="step"></div><div class="step"></div><div class="step"></div></div>
+      </div>
+    </section>
+
+    <!-- ═════════════ IX · SUNDARA ═════════════ -->
+    <section class="ch sundara scene" id="sundara" data-num="IX" data-title="Sundara" data-tone="indigo">
+      <div class="stage">
+        <canvas class="ocean" role="img" aria-label="Rendered scene: a streak of saffron light arcs from a mountain on the shore, across a moonlit ocean, toward an island city glowing on the horizon"></canvas>
+        <p class="stage__label"><span>IX</span> Sundara Kāṇḍa · the beautiful book</p>
+        <p class="sundara__notice">Hanumān does not appear in Part One's footage, so his leap is rendered here as light crossing the sea.</p>
+      </div>
+      <div class="beats">
+        <div class="beat beat--left"><p class="kicker">Kiṣkindhā</p><p class="narration">In the land of the vānaras, Rama found allies: the exiled king Sugrīva and his minister <em>Hanumān</em>, son of the wind.</p></div>
+        <div class="beat beat--right"><p class="narration">The searchers learned that Sītā was held in Laṅkā, a hundred leagues across the sea. None of them could cross it.</p></div>
+        <div class="beat beat--center"><p class="narration narration--lg">Hanumān climbed Mount Mahendra, grew until he towered over the hills, and leapt.</p></div>
+        <div class="beat beat--left"><p class="narration">In Rāvaṇa's grove of aśoka trees he found Sītā, and gave her Rama's ring so she would know he was coming.</p></div>
+        <div class="beat beat--right"><p class="narration">Captured, he let them set his tail on fire. Then he leapt from roof to roof and set Laṅkā ablaze.</p></div>
+      </div>
+    </section>
+
+    <!-- ═════════════ X · THE ROAD TO LANKA ═════════════ -->
+    <section class="ch road" id="road" data-num="X" data-title="The Road to Laṅkā" data-tone="indigo">
+      <div class="road__head">
+        <p class="eyebrow">/ X · The Road to Laṅkā</p>
+        <h2 class="road__title">Nine places.<br /><em>One road.</em></h2>
+        <p class="road__lede">The route follows the places Vālmīki names. Where a site sits today is a matter of tradition, not survey. Select a place to read its story.</p>
+      </div>
+      <div class="map" data-state="drawing">
+        <div class="map__plane">
+          <svg class="map__svg" viewBox="0 0 1100 1250" role="group" aria-label="Shaded relief map of the route from Ayodhyā to Laṅkā">
+            <defs>
+              <filter id="routeRough" x="-5%" y="-5%" width="110%" height="110%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="5" />
+                <feDisplacementMap in="SourceGraphic" scale="3.5" />
+              </filter>
+              <filter id="routeGlow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6" /></filter>
+            </defs>
+            <image class="map__relief" href="/media/map/relief.webp" width="1100" height="1250" preserveAspectRatio="none" />
+            <path class="map__land" />
+            <path class="map__lanka" />
+            <g class="map__rivers"></g>
+            <g class="map__trail">
+              <path class="map__route map__route--glow" />
+              <path class="map__route map__route--body" />
+              <path class="map__route map__route--dust" />
+            </g>
+            <g class="map__leapgroup">
+              <path class="map__leap map__leap--glow" />
+              <path class="map__leap" />
+            </g>
+            <path class="map__setu" />
+            <g class="map__labels" aria-hidden="true"></g>
+          </svg>
+          <div class="map__pins"></div>
+        </div>
+      </div>
+      <aside class="place" aria-live="polite" hidden>
+          <button class="place__close" aria-label="Close place">×</button>
+          <div class="place__media"></div>
+          <p class="place__kanda"></p>
+          <h3 class="place__name"></h3>
+          <p class="place__deva" lang="sa"></p>
+          <p class="place__text"></p>
+      </aside>
+    </section>
+
+    <!-- ═════════════ XI · THE WAR ═════════════ -->
+    <section class="ch war scene" id="war" data-num="XI" data-title="The War" data-tone="sindoor">
+      <div class="stage">
+        <div class="duel">
+          <div class="duel__side duel__side--rama">
+            <video class="clip" data-clip="rama_leap" muted playsinline loop preload="none" poster="/media/posters/rama_leap.webp"></video>
+            <video class="clip" data-clip="rama_arrow" muted playsinline loop preload="none" poster="/media/posters/rama_arrow.webp"></video>
+            <p class="duel__name">Rāma</p>
+          </div>
+          <div class="duel__side duel__side--ravana">
+            <video class="clip" data-clip="spear_fight" muted playsinline loop preload="none" poster="/media/posters/spear_fight.webp"></video>
+            <video class="clip" data-clip="lightning" muted playsinline loop preload="none" poster="/media/posters/lightning.webp"></video>
+            <p class="duel__name">Rāvaṇa</p>
+          </div>
+          <span class="duel__seam" aria-hidden="true"></span>
+        </div>
+        <div class="arrow" aria-hidden="true"><i></i></div>
+        <div class="whiteout" aria-hidden="true"></div>
+        <div class="war__after">
+          <p class="war__fell">Rāvaṇa fell.</p>
+          <p class="war__coda">A later telling adds that, as the king lay dying, Rama sent Lakṣmaṇa to sit at his feet and learn, for no one alive knew more than Rāvaṇa.</p>
+        </div>
+        <p class="stage__label stage__label--sindoor"><span>XI</span> The War at Laṅkā</p>
+      </div>
+      <div class="beats">
+        <div class="beat beat--left"><p class="kicker">The Setu</p><p class="narration">Stone by stone, Nala and the vānara army built a bridge across the sea. Rāvaṇa's brother Vibhīṣaṇa crossed over to Rama's side.</p></div>
+        <div class="beat beat--right"><p class="narration">The giant Kumbhakarṇa woke, and fell. Indrajit's weapons struck Lakṣmaṇa down. Hanumān flew north and carried back a mountain of healing herbs before dawn.</p></div>
+        <div class="beat beat--center"><p class="narration narration--lg">On the last day, the man stood before the king of Laṅkā.</p></div>
+        <div class="beat beat--center"><p class="narration">Rama loosed the weapon of Brahmā.</p></div>
+        <div class="beat beat--quiet"></div>
+      </div>
+    </section>
+
+    <!-- ═════════════ XII · LEGACY ═════════════ -->
+    <section class="ch legacy" id="legacy" data-num="XII" data-title="Legacy" data-tone="gold">
+      <div class="legacy__return">
+        <div class="frame frame--band" role="img" aria-label="Women holding trays of oil lamps as rose petals fall at dusk">
+          <video class="clip" data-clip="sita_diya" muted playsinline loop preload="none" poster="/media/posters/sita_diya.webp"></video>
+        </div>
+        <div class="legacy__return-copy">
+          <p class="eyebrow">/ XII · The Return</p>
+          <h2 class="legacy__title">Ayodhyā lit its lamps</h2>
+          <p>Rama, Sītā and Lakṣmaṇa flew home in the Puṣpaka. Bharata gave back the sandals, and the throne. In many places the night the city lit its lamps is still remembered as <em>Dīpāvalī</em>. On <em>Vijayadaśamī</em>, effigies of Rāvaṇa burn across India, while in some towns and communities he is honoured as a scholar and a devotee.</p>
+        </div>
+      </div>
+
+      <div class="legacy__origin">
+        <p class="eyebrow">/ Where it began</p>
+        <blockquote class="verse verse--wide">
+          <p class="verse__deva" lang="sa">मा निषाद प्रतिष्ठां त्वमगमः शाश्वतीः समाः ।<br />यत्क्रौञ्चमिथुनादेकमवधीः काममोहितम् ॥</p>
+          <p class="verse__iast" lang="sa-Latn">mā niṣāda pratiṣṭhāṃ tvam agamaḥ śāśvatīḥ samāḥ<br />yat krauñca-mithunād ekam avadhīḥ kāma-mohitam</p>
+          <p class="verse__en">“Hunter, may you find no rest for endless years, for you killed one of a pair of krauñca birds lost in love.”</p>
+          <footer>Vālmīki, Bāla Kāṇḍa. The poet watched a hunter kill one of two mating birds. His grief, <em>śoka</em>, came out as the first <em>śloka</em>. From that verse, tradition says, the Rāmāyaṇa grew.</footer>
+        </blockquote>
+      </div>
+
+      <div class="tellings">
+        <p class="eyebrow">/ One story, many tellings</p>
+        <div class="tellings__rail" aria-label="Some of the many Ramayanas">
+          <ul class="tellings__track">
+            <li><b>Rāmāyaṇa</b> Vālmīki · Sanskrit</li>
+            <li><b>Kamba Rāmāyaṇam</b> Kamban · Tamil</li>
+            <li><b>Rāmcaritmānas</b> Tulsīdās · Awadhi</li>
+            <li><b>Kṛttivāsī Rāmāyaṇa</b> Kṛttivās · Bengali</li>
+            <li><b>Adhyātma Rāmāyaṇa</b> Sanskrit</li>
+            <li><b>Kakawin Rāmāyaṇa</b> Old Javanese</li>
+            <li><b>Ramakien</b> Thailand</li>
+            <li><b>Reamker</b> Cambodia</li>
+            <li><b>Hikayat Seri Rama</b> Malay</li>
+            <li><b>Phra Lak Phra Lam</b> Laos</li>
+            <li><b>Yama Zatdaw</b> Myanmar</li>
+          </ul>
+        </div>
+        <p class="tellings__note">Ramayanas were retold in many languages and faiths across South and Southeast Asia. Details shift from one telling to the next; this journey follows the outline of Vālmīki.</p>
+      </div>
+
+      <div class="scene finale">
+        <div class="stage">
+          <div class="frame frame--full finale__walk" role="img" aria-label="A lone walker disappears into a haze of desert dust"><video class="clip" data-clip="walk_wide" muted playsinline loop preload="none" poster="/media/posters/walk_wide.webp"></video></div>
+          <div class="letterbox" aria-hidden="true"><i></i><i></i></div>
+          <div class="finale__words">
+            <p class="finale__line">The journey doesn't end.</p>
+            <p class="finale__line"><em>It is told again.</em></p>
+            <p class="finale__iti" lang="sa">॥ इति ॥</p>
+            <button class="btn btn--gold finale__again">Begin the journey again</button>
+          </div>
+        </div>
+        <div class="beats beats--steps" aria-hidden="true"><div class="step"></div><div class="step"></div></div>
+      </div>
+
+      <footer class="credits">
+        <p>A fan-made concept experience. Footage is from the trailer for <em>Ramayana</em> (Part One), © its respective owners, and is used here as reference only. It isn't affiliated with or endorsed by the filmmakers.</p>
+        <p>Narrative after Vālmīki's Rāmāyaṇa. Where traditions differ, the text says so. Sound is synthesised in the browser.</p>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

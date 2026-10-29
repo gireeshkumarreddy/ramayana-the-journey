@@ -1,0 +1,27 @@
+# Dependencies and build output
+node_modules/
+dist/
+
+# Media is not part of this repository: footage, frame sequences, stills, renders
+public/media/
+*.mp4
+*.mov
+*.m4v
+*.webm
+*.mkv
+*.mjpeg
+*.webp
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.avif
+*.wav
+*.mp3
+
+# Working folders from editing and recording
+_analysis/
+_rec/
+
+# Local tooling
+.claude/
